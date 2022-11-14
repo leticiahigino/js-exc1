@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo da média</title>
+</head>
+
+<body>
+    <h1>Cálculo da média</h1>
+    <label for="nota1">Nota 2 =</label>
+    <input type="text" id="nota1">
+    <br>
+    <label for="nota2">Nota 1 =</label>
+    <input type="text" id="nota2">
+    <br>
+    <button onclick="verificarSituacao()">Verificar</button>
+    <p>Média:<span id="media"></span></p>
+    <p>Situação:<span id="situacao"></span></p>
+    <script>
+        function verificarSituacao() {
+            let nota1 = parseFloat(document.getElementById("nota1").value);
+            let nota2 = parseFloat(document.getElementById("nota2").value);
+            let media = (nota1 + nota2) / 2;
+            let situacao = "";
+            let cor = "";
+            if (media >= 6.0) {
+                situacao = "Aprovado!";
+                cor = "blue";
+            } else {
+                if (media >= 2) {
+                    situacao = "Exame Final!";
+                    cor = "orange";
+                } else {
+                    situacao = "Reprovado!";
+                    cor = "red";
+                }
+            }
+
+            document.getElementById("media").innerHTML = media;
+            document.getElementById("situacao").innerHTML = situacao;
+            document.getElementById("situacao").style.color = cor;
+
+        }
+
+    </script>
+</body>
+
+</html>
+
